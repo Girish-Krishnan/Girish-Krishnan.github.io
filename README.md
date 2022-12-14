@@ -1,2 +1,3 @@
-# Girish-Krishnan.github.io
-Girish's homepage.
+# Girish Krishnan's Website
+
+Hello and welcome to the GitHub repository for my website!
