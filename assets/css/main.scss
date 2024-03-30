@@ -1,0 +1,20 @@
+// Main SCSS file (main.scss)
+
+// Import Variables (if you have a _variables.scss file for colors, fonts, etc.)
+@import 'variables';
+
+// Import Base Styles
+@import 'base';
+
+// Import Layout Styles
+@import 'layout';
+
+// Import Component Styles (e.g., buttons, cards, modals)
+@import 'components/buttons';
+@import 'components/cards';
+
+// Import Utility Classes (if you have a _utilities.scss file for margin, padding, etc.)
+@import 'utilities';
+
+// Responsive Styles (if you separate your responsive styles)
+@import 'responsive';

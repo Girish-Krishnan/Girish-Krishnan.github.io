@@ -1,0 +1,81 @@
+// Base Stylesheet (_base.scss)
+
+// Typography
+$body-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-font: 'Georgia', serif;
+
+// Colors
+$primary-color: #3498db; // Example: Blue
+$secondary-color: #2c3e50; // Example: Dark Blue
+$accent-color: #e74c3c; // Example: Red
+$light-background: #ecf0f1; // Example: Light Grey
+$text-color: #333; // Dark grey
+$link-color: $primary-color;
+$link-hover-color: darken($primary-color, 10%);
+
+// Base styles
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $body-font;
+    color: $text-color;
+    background-color: $light-background;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font;
+    color: $secondary-color;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    
+    &:hover,
+    &:focus {
+        color: $link-hover-color;
+    }
+}
+
+// Container
+.container {
+    width: 80%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+// Basic Responsive Grid
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    padding: 0 15px;
+}
+
+// Utility Classes
+.text-center {
+    text-align: center;
+}
+
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.pt-2 { padding-top: 2rem; }
+.pb-2 { padding-bottom: 2rem; }
+
+// Responsive Media Queries
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+}

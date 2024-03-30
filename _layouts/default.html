@@ -1,30 +1,48 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>{{ page.title }}</title>
-			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-		</head>
-		<body>
-			<nav>
-	    		<ul>
-	        		<li><a href="/">Girish Krishnan | Home</a></li>
-		        	<li><a href="/research">Research</a></li>
-	        		<li><a href="/teaching">Teaching</a></li>
-	        		<li><a href="/projects">Projects</a></li>
-             
-	    		</ul>
-			</nav>
-			<div class="container">
-			
-			{{ content }}
-			
-			</div><!-- /.container -->
-			<footer>
-	    		<ul>
-	        		<li><a href="mailto:gikrishnan@ucsd.edu">Email: gikrishnan@ucsd.edu</a></li>
-	        		<li><a href="https://github.com/Girish-Krishnan/">github.com/Girish-Krishnan</a></li>
-				</ul>
-			</footer>
-		</body>
-	</html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: "Your Portfolio" }} - {{ site.title }}</title>
+    <!-- Link to the main CSS file -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <!-- Additional head content can go here -->
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+                    <li><a href="{{ '/experience/' | relative_url }}">Experience</a></li>
+                    <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+                    <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
+                    <li><a href="{{ '/teaching/' | relative_url }}">Teaching</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content area where page content will be injected -->
+    <main>
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; {{ "now" | date: "%Y" }} Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript files can be included here -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+
+</html>

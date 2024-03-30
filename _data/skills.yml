@@ -1,0 +1,19 @@
+# _data/skills.yml
+
+- name: Web Development
+  items:
+    - HTML5
+    - CSS3/Sass
+    - JavaScript
+
+- name: Programming Languages
+  items:
+    - Python
+    - Ruby
+    - Java
+
+- name: Frameworks
+  items:
+    - React
+    - Vue.js
+    - Django
