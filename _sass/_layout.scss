@@ -88,3 +88,47 @@
     }
   }
   
+  // Navbar Styles
+
+.site-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 20px; // Adjust the spacing between nav items here
+
+      a {
+        text-decoration: none;
+        color: $text-color; // Use the variable you defined for text color
+        font-weight: bold; // Makes the text bold
+        padding: 10px 15px; // Add padding for clickable area
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $accent-color; // Change color on hover
+          background-color: $light-background; // Add background color on hover
+          border-radius: 5px; // Optional: round the corners on hover
+        }
+      }
+    }
+  }
+}
+
+// Responsive Nav Bar
+@media (max-width: 768px) {
+  .site-nav ul {
+    flex-direction: column;
+    li {
+      margin: 10px 0; // Stack them with space between on smaller screens
+    }
+  }
+}
