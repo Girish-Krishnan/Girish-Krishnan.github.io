@@ -1,48 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: compress
+---
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: "Girish Krishnan" }} - {{ site.title }}</title>
-    <!-- Link to the main CSS file -->
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <!-- Additional head content can go here -->
-</head>
+{% include base_path %}
 
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-                    <li><a href="{{ '/experience/' | relative_url }}">Experience</a></li>
-                    <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-                    <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
-                    <li><a href="{{ '/teaching/' | relative_url }}">Teaching</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
 
-    <!-- Main content area where page content will be injected -->
-    <main>
-        <div class="container">
-            {{ content }}
-        </div>
-    </main>
+  <body>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; {{ "now" | date: "%Y" }} Girish Krishnan. All Rights Reserved.</p>
-        </div>
-    </footer>
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
 
-    <!-- JavaScript files can be included here -->
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-</body>
+    {{ content }}
 
+    <div class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
+    </div>
+
+    {% include scripts.html %}
+
+  </body>
 </html>
