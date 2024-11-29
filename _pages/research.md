@@ -7,7 +7,7 @@ author_profile: true
 
 I have worked in a few research labs at UC San Diego.
 
-# Existential Robotics Lab ([existentialrobotics.org/](https://existentialrobotics.org/)) [2022-Present]
+# Existential Robotics Lab ([existentialrobotics.org](https://existentialrobotics.org/)) [2022-Present]
 
 I worked on 3 different projects in the Existential Robotics Lab, which is led by Dr. Nikolay Atanasov.
 
@@ -27,7 +27,7 @@ During Summer 2024, I briefly worked on a project to autonomously move a robot a
 
 [Click here](https://github.com/Girish-Krishnan/ros2_orb_slam3) to view the GitHub repository for my modifications to the ORB SLAM3 package.
 
-# Video Processing Lab ([videoprocessing.ucsd.edu/](https://videoprocessing.ucsd.edu/)) [2022-Present]
+# Video Processing Lab ([videoprocessing.ucsd.edu](https://videoprocessing.ucsd.edu/)) [2022-Present]
 
 I joined the Video Processing Lab through the ECE Summer Research Internship Program to pursue my interest in computer vision. My work focused on designing a scalable 3D reconstruction system that generates point clouds of human subjects from 2D images and depth maps captured from multiple viewpoints. I implemented the system from scratch, drawing on concepts from graduate-level computer vision courses like CSE 252A to understand camera models, calibration, and 3D geometry. Compared to open-source libraries like Open3D, my implementation was faster and adaptable to any number of cameras.
 
@@ -39,7 +39,7 @@ My work was presented at the Undergraduate Summer Research Conference (2022) and
 
 I co-authored a paper accepted at 3DV 2025, as described in the [Publications](/publications) section, where I described my in-the-wild 3D human dataset and the 3D reconstruction system.
 
-# Turakhia Lab ([turakhia.ucsd.edu/](https://turakhia.ucsd.edu/)) [2023-2024]
+# Turakhia Lab ([turakhia.ucsd.edu](https://turakhia.ucsd.edu/)) [2023-2024]
 
 The Turakhia Lab works at the intersection of computer engineering and computational biology. I joined the Turakhia Lab in Spring 2023 as part of the ECE Summer Research Internship Program at UCSD, and worked as part of the **Wastewater-based Epidemiology (WBE)** project along with Carolyn Zhang and I was mentored by Pranav Gangwar and Dr. Yatish Turakhia. 
 
