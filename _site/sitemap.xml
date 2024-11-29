@@ -82,10 +82,16 @@
 <loc>http://localhost:4000/cv/</loc>
 </url>
 <url>
+<loc>http://localhost:4000/industry/</loc>
+</url>
+<url>
 <loc>http://localhost:4000/markdown/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/non-menu-page/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/organizations/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/page-archive/</loc>
@@ -95,6 +101,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/publications/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/research/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/sitemap/</loc>
@@ -119,6 +128,10 @@
 </url>
 <url>
 <loc>http://localhost:4000/markdown_generator/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/_pages/publications.html</loc>
+<lastmod>2024-11-28T22:12:53-08:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/files/paper1.pdf</loc>

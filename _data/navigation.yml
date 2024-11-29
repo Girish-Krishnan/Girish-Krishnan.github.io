@@ -5,23 +5,29 @@
 # prevent it from being included in the site.
 
 main:
+  - title: "Research"
+    url: /research/
+
   - title: "Publications"
     url: /publications/
 
-  - title: "Talks"
-    url: /talks/    
+  - title: "Industry Experience"
+    url: /industry/
+
+  # - title: "Projects"
+  #   url: /projects/ 
 
   - title: "Teaching"
-    url: /teaching/    
+    url: /teaching/
+
+  - title: "Organizations"
+    url: /organizations/    
     
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
+  # - title: "Portfolio"
+  #   url: /portfolio/
     
-  - title: "CV"
-    url: /cv/
-    
-  - title: "Guide"
-    url: /markdown/
+  # - title: "Resume"
+  #   url: /cv/
+
+  # - title: "Misc"
+  #   url: /cv/
