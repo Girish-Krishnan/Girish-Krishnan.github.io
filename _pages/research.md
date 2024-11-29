@@ -27,7 +27,7 @@ During Summer 2024, I briefly worked on a project to autonomously move a robot a
 
 [Click here](https://github.com/Girish-Krishnan/ros2_orb_slam3) to view the GitHub repository for my modifications to the ORB SLAM3 package.
 
-# Video Processing Lab ([videoprocessing.ucsd.edu](https://videoprocessing.ucsd.edu/)) [2022-Present]
+# Video Processing Lab ([videoprocessing.ucsd.edu](https://sites.google.com/view/ucsdvpl/home)) [2022-Present]
 
 I joined the Video Processing Lab through the ECE Summer Research Internship Program to pursue my interest in computer vision. My work focused on designing a scalable 3D reconstruction system that generates point clouds of human subjects from 2D images and depth maps captured from multiple viewpoints. I implemented the system from scratch, drawing on concepts from graduate-level computer vision courses like CSE 252A to understand camera models, calibration, and 3D geometry. Compared to open-source libraries like Open3D, my implementation was faster and adaptable to any number of cameras.
 
