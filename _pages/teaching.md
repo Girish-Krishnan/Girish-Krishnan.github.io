@@ -16,6 +16,7 @@ If you are planning to take any of these courses, feel free to reach out to me i
   - [COGS 118B: Unsupervised Machine Learning Algorithms \[Winter 2024\]](#cogs-118b-unsupervised-machine-learning-algorithms-winter-2024)
   - [COGS 188: AI Algorithms and Reinforcement Learning \[Spring 2024, Winter 2025\]](#cogs-188-ai-algorithms-and-reinforcement-learning-spring-2024-winter-2025)
 - [Computer Science and Engineering Courses](#computer-science-and-engineering-courses)
+  - [CSE 95: Tutor Apprenticeship in Computer Science and Engineering \[Fall 2022\]](#cse-95-tutor-apprenticeship-in-computer-science-and-engineering-fall-2022)
   - [CSE 175: Entrepreneurship for Engineers \[Spring 2022\]](#cse-175-entrepreneurship-for-engineers-spring-2022)
   - [CSE 190: Special Topics in CSE: AI/ML for Music and Audio \[Summer 2024\]](#cse-190-special-topics-in-cse-aiml-for-music-and-audio-summer-2024)
 - [Electrical and Computer Engineering Courses](#electrical-and-computer-engineering-courses)
@@ -54,6 +55,12 @@ This course gives students a basic understanding of reinforcement learning and A
 This [GitHub repository](https://github.com/Girish-Krishnan/AI-Algorithms/tree/main) contains all the programming assignments that were created for this course.
 
 # Computer Science and Engineering Courses
+
+## CSE 95: Tutor Apprenticeship in Computer Science and Engineering [Fall 2022]
+
+*Taught by Professor Mia Minnes*
+
+This course is taken by students who are first-time tutors in the CSE department. The course covers topics such as how to effectively tutor students, how to grade assignments, how to provide feedback, and how to create a welcoming and inclusive environment for students. The class sessions consist of fun and interesting discussions about the best tutoring practices, while the course assignments encourage students to reflect on their tutoring experiences and learn from them. I was responsible for grading the students' assignments, providing feedback, and facilitating discussions during the class sessions.
 
 ## CSE 175: Entrepreneurship for Engineers [Spring 2022]
 
