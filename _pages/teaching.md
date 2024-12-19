@@ -11,6 +11,8 @@ In Spring 2022, I was awarded the **Best Tutor Award** from the ECE Department d
 
 If you are planning to take any of these courses, feel free to reach out to me if you have any questions about them!
 
+My teaching evaluations can be found [here](https://drive.google.com/drive/folders/1-rVGUkRIBWbpBR-cdf4USOVdJX1XFFWW?usp=sharing).
+
 - [Machine Learning Courses in the Department of Cognitive Science](#machine-learning-courses-in-the-department-of-cognitive-science)
   - [COGS 118A: Supervised Machine Learning Algorithms \[Fall 2023\]](#cogs-118a-supervised-machine-learning-algorithms-fall-2023)
   - [COGS 118B: Unsupervised Machine Learning Algorithms \[Winter 2024\]](#cogs-118b-unsupervised-machine-learning-algorithms-winter-2024)
