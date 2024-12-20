@@ -19,4 +19,4 @@ At UCSD, I work in the [Existential Robotics Lab](https://existentialrobotics.or
 
 **I am currently applying to Ph.D. programs in fields related to robotics, control, or machine learning, starting in Fall 2025!**
 
-If you are interested in my work, feel free to reach out to me at gikrishnan [at] ucsd [dot] edu.
+If you are interested in my work, feel free to reach out to me at gikrishnan [at] ucsd [dot] edu OR girish [at] ieeeucsd [dot] org.
