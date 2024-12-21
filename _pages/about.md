@@ -9,7 +9,7 @@ redirect_from:
 
 I'm interested in the intersection of control theory, optimization, machine learning and the application of these fields to robotics. My goal is to design autonomous systems that combine theoretical safety guarantees with the practical performance of learning-based methods.
 
-I am currently a 4th-year undergraduate student at the University of California, San Diego. By Spring 2025, I will have completed a Bachelor of Science, triple majoring in:
+I am currently a 4th-year undergraduate student at the University of California, San Diego. By Winter 2025, I will have completed a Bachelor of Science, triple majoring in:
 
 - Electrical Engineering, with a depth in Machine Learning and Controls
 - Mathematics-Computer Science
