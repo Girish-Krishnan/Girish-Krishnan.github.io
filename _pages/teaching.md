@@ -22,9 +22,9 @@ My teaching evaluations can be found [here](https://drive.google.com/drive/folde
   - [CSE 175: Entrepreneurship for Engineers \[Spring 2022\]](#cse-175-entrepreneurship-for-engineers-spring-2022)
   - [CSE 190: Special Topics in CSE: AI/ML for Music and Audio \[Summer 2024\]](#cse-190-special-topics-in-cse-aiml-for-music-and-audio-summer-2024)
 - [Electrical and Computer Engineering Courses](#electrical-and-computer-engineering-courses)
-  - [ECE 16: Rapid Hardware and Software Design \[Spring 2022, Fall 2022, Winter 2024\]](#ece-16-rapid-hardware-and-software-design-spring-2022-fall-2022-winter-2024)
+  - [ECE 16: Rapid Hardware and Software Design \[Spring 2022, Fall 2022, Winter 2024, Winter 2025\]](#ece-16-rapid-hardware-and-software-design-spring-2022-fall-2022-winter-2024-winter-2025)
   - [ECE 25: Introduction to Digital Design \[Winter 2022, Spring 2022\]](#ece-25-introduction-to-digital-design-winter-2022-spring-2022)
-  - [ECE 140A-B: The Art of Product Engineering \[Winter 2023, Spring 2023, Winter 2024\]](#ece-140a-b-the-art-of-product-engineering-winter-2023-spring-2023-winter-2024)
+  - [ECE 140A-B: The Art of Product Engineering \[Winter 2023, Spring 2023, Winter 2024, Winter 2025\]](#ece-140a-b-the-art-of-product-engineering-winter-2023-spring-2023-winter-2024-winter-2025)
   - [ECE 198: Directed Group Study, HKN Outreach \[Fall 2022, Winter 2023, Spring 2023\]](#ece-198-directed-group-study-hkn-outreach-fall-2022-winter-2023-spring-2023)
 - [Other Engineering Courses](#other-engineering-courses)
   - [ENG 20: Introduction to Engineering Research \[Fall 2024\]](#eng-20-introduction-to-engineering-research-fall-2024)
@@ -82,7 +82,7 @@ The [website](https://sites.google.com/eng.ucsd.edu/ucsd-cse-190/home?authuser=0
 
 # Electrical and Computer Engineering Courses
 
-## ECE 16: Rapid Hardware and Software Design [Spring 2022, Fall 2022, Winter 2024]
+## ECE 16: Rapid Hardware and Software Design [Spring 2022, Fall 2022, Winter 2024, Winter 2025]
 
 *Taught by Professor Ramsin Khoshabeh*
 
@@ -94,7 +94,7 @@ This class introduces students to rapid prototyping using microcontrollers. The 
 
 This class teaches students the basics of digital logic design including topics such as Boolean algebra, combination and sequential logic, gates and their implementation in digital circuits, finite state machines, and some basic computer architecture. I mainly conducted the lab sessions, where students used the Xilinx Vivado software and Verilog to design and implement digital circuits on an Basys3 board. Through a series of labs, the students built a simple calculator, where if you input two numbers on a TV remote, the calculator would perform the operation and display the result on a 7-segment display on the Basys3 board. I was responsible for grading the students' lab reports, providing feedback, and helping them with their labs.
 
-## ECE 140A-B: The Art of Product Engineering [Winter 2023, Spring 2023, Winter 2024]
+## ECE 140A-B: The Art of Product Engineering [Winter 2023, Spring 2023, Winter 2024, Winter 2025]
 
 *Taught by Professor Ramsin Khoshabeh and Richard Gessner*
 
