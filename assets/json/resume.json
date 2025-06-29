@@ -1,199 +1,274 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "name": "Girish Krishnan",
+    "label": "AI / ML Researcher and Robotics Engineer",
+    "image": "prof_pic.jpg",
+    "email": "gikrishnan@ucsd.edu",
+    "url": "https://girish-krishnan.github.io/",
+    "summary": "Graduate student and researcher at UC San Diego focused on reinforcement learning, robot perception, and autonomous systems with experience spanning academic labs, startups, and large-scale industrial projects.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
+      "address": "9500 Gilman Drive",
+      "postalCode": "CA 92093",
+      "city": "San Diego",
       "countryCode": "US",
       "region": "California"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "GitHub",
+        "username": "Girish-Krishnan",
+        "url": "https://github.com/Girish-Krishnan"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
+      "name": "Argon Robotics",
+      "position": "AI and Robotics Engineer",
       "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "startDate": "2024-01-01",
+      "endDate": "2025-06-28",
+      "summary": "Developing perception and control software for fully autonomous welding robots in the construction industry.",
+      "highlights": [
+        "Created 3D reconstruction pipelines that improved weld seam localization accuracy.",
+        "Integrated ROS2, MoveIt2, and xArm APIs for precise manipulator motion during welding tasks.",
+        "Optimized control algorithms that reduced positional error and produced smoother arm trajectories."
+      ]
+    },
+    {
+      "name": "Innovative Marine Technology Lab, Scripps Institution of Oceanography",
+      "position": "Software Engineering Lead",
+      "url": "https://example.com",
+      "startDate": "2023-01-01",
+      "endDate": "2025-06-28",
+      "summary": "Leading software development for autonomous underwater robots used in oceanographic research.",
+      "highlights": [
+        "Built sensor and camera pipelines that ensured robust data capture in harsh marine environments.",
+        "Designed a web based interface that streams live data and allows remote control of onboard devices.",
+        "Created computer vision tools to quantify underwater bubble dynamics for climate studies."
+      ]
+    },
+    {
+      "name": "Brain Corporation",
+      "position": "Applied AI / ML Software Engineering Intern",
+      "url": "https://example.com",
+      "startDate": "2024-06-01",
+      "endDate": "2024-09-01",
+      "summary": "Contributed to AI powered retail automation systems for shelf inventory monitoring.",
+      "highlights": [
+        "Trained detection models on Google Vertex AI that identified out of stock items with high precision.",
+        "Curated and annotated a custom image dataset using V7 Darwin and BigQuery.",
+        "Deployed optimized models into production pipelines improving inventory checking speed."
+      ]
+    },
+    {
+      "name": "NeuronFlo",
+      "position": "AI and Computer Vision Engineer",
+      "url": "https://example.com",
+      "startDate": "2023-01-01",
+      "endDate": "2024-01-01",
+      "summary": "Developed real time PPE compliance monitoring solutions for industrial sites.",
+      "highlights": [
+        "Trained PyTorch object detection models that achieved reliable helmet and vest recognition.",
+        "Ported inference to NVIDIA Jetson Nano enabling onsite deployment with limited power budgets.",
+        "Implemented alert pipelines that improved workplace safety through timely notifications."
+      ]
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
+      "organization": "Eta Kappa Nu (HKN), UC San Diego",
+      "location": "San Diego, CA",
+      "position": "Outreach Chair",
       "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "startDate": "2022-01-01",
+      "endDate": "2023-06-01",
+      "summary": "Led K-12 engineering outreach and created hands on lessons in electronics and coding.",
+      "highlights": [
+        "Organized classroom visits that reached more than one hundred fifty students.",
+        "Developed a new ECE 198 course that trains undergraduates in outreach pedagogy."
+      ]
+    },
+    {
+      "organization": "IEEE at UC San Diego",
+      "location": "San Diego, CA",
+      "position": "Technical Chair and Mentor",
+      "url": "https://example.com",
+      "startDate": "2022-09-01",
+      "endDate": "2025-06-28",
+      "summary": "Ran workshops on computer vision and deep learning and mentored competition teams.",
+      "highlights": [
+        "Taught OpenCV and neural network fundamentals to more than thirty students.",
+        "Guided the Signal Processing Cup team to achieve ninety five percent accuracy in Deepfake detection."
+      ]
+    },
+    {
+      "organization": "Yonder Deep",
+      "location": "San Diego, CA",
+      "position": "Software Team Lead",
+      "url": "https://example.com",
+      "startDate": "2022-09-01",
+      "endDate": "2023-05-01",
+      "summary": "Led software efforts for low cost autonomous underwater vehicles used in Arctic research.",
+      "highlights": [
+        "Built Python control software that integrated sensor data with navigation routines.",
+        "Achieved the first fully autonomous dive of the student built robot."
+      ]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "University of California San Diego",
+      "location": "San Diego, CA",
+      "url": "https://ucsd.edu",
+      "area": "Intelligent Systems Robotics and Controls",
+      "studyType": "Master of Science in Electrical and Computer Engineering",
+      "startDate": "2023-09-01",
+      "endDate": "2025-12-15",
+      "score": "4.00",
+      "courses": [
+        "Stochastic Dynamical Systems",
+        "Convex Optimization",
+        "Robot Learning",
+        "Deep Learning",
+        "Planning and Learning in Robotics",
+        "Robot Manipulation and Control"
+      ]
+    },
+    {
+      "institution": "University of California San Diego",
+      "location": "San Diego, CA",
+      "url": "https://ucsd.edu",
+      "area": "Electrical Engineering, Mathematics Computer Science, and Physics",
+      "studyType": "Bachelor of Science",
+      "startDate": "2021-09-01",
+      "endDate": "2025-03-15",
+      "score": "3.924",
+      "courses": [
+        "Machine Learning",
+        "Computer Vision",
+        "Robotics",
+        "Optimization"
+      ]
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
+      "title": "Apple Pathways Scholars Award",
+      "date": "2024-05-15",
+      "awarder": "Apple Inc.",
       "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
+      "summary": "Fifteen thousand dollars per year merit scholarship recognizing academic achievement and leadership in inclusion initiatives."
     },
     {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
+      "title": "UCSD ECE Best Tutor Award",
+      "date": "2022-06-10",
+      "awarder": "UC San Diego Department of Electrical and Computer Engineering",
       "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
+      "summary": "Honored for outstanding teaching contributions across more than twenty courses."
     },
     {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
+      "title": "Most Innovative Award, IEEE F1TENTH Competition",
+      "date": "2023-06-25",
+      "awarder": "IEEE Intelligent Vehicles Symposium",
       "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
+      "summary": "Recognized for a novel deep learning based navigation system for autonomous racing."
     }
   ],
   "publications": [
     {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
-    },
-    {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
-    },
-    {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "Open Vocabulary Semantic Part Segmentation of 3D Human",
+      "publisher": "International Conference on 3D Vision",
+      "releaseDate": "2025-07-01",
+      "url": "https://example.com",
+      "summary": "Introduces an open vocabulary approach for part segmentation of human meshes and demonstrates strong performance on in the wild datasets."
     }
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
+      "name": "Programming and AI",
+      "level": "Advanced",
+      "icon": "fa-solid fa-code",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Python",
+        "C++",
+        "PyTorch",
+        "TensorFlow",
+        "Scikit learn",
+        "Docker",
+        "Kubernetes"
       ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
     },
     {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
+      "name": "Robotics",
+      "level": "Advanced",
+      "icon": "fa-solid fa-robot",
+      "keywords": [
+        "ROS2",
+        "MoveIt2",
+        "TensorRT",
+        "MuJoCo",
+        "ONNX",
+        "SLAM",
+        "Reinforcement Learning"
+      ]
     }
   ],
   "interests": [
     {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
+      "name": "Robotics Research",
+      "icon": "fa-solid fa-gear",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Autonomous Vehicles",
+        "Robot Manipulation",
+        "Safe Control",
+        "Generative Models"
       ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
     }
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
+      "name": "Visual Inertial SLAM for Localization",
+      "summary": "Built a Python EKF based system that fuses stereo vision and IMU data achieving real time trajectory and landmark estimation.",
+      "highlights": [
+        "Downsampled features and used sparse matrices to meet real time constraints.",
+        "Validated on multiple driving datasets showing accurate mapping."
+      ],
+      "startDate": "2024-01-10",
+      "endDate": "2024-03-20",
+      "url": "https://example.com"
+    },
+    {
+      "name": "FutureGAN for Human Motion Prediction",
+      "summary": "Implemented a generative adversarial model to predict future video frames of athletic movements using optical flow guidance.",
+      "highlights": [
+        "Trained on HMDB fencing sequences and achieved realistic frame generation.",
+        "Evaluated with FID and Inception metrics to ensure quality."
+      ],
+      "startDate": "2024-04-01",
+      "endDate": "2024-06-10",
+      "url": "https://example.com"
+    },
+    {
+      "name": "Autonomous Navigation for F1TENTH Racecar",
+      "summary": "Led a team to deploy a CNN based controller that predicts steering and throttle from RGBD input earning fourth place in competition.",
+      "highlights": [
+        "Optimized inference on NVIDIA Jetson hardware using ROS2 nodes.",
+        "Won the competition innovation award for creative design."
+      ],
+      "startDate": "2023-02-01",
+      "endDate": "2023-06-25",
+      "url": "https://example.com"
+    },
+    {
+      "name": "Quadcopter Flight Control and PCB Design",
+      "summary": "Designed a four layer PCB and embedded PID controller in C to stabilize a custom quadcopter platform.",
+      "highlights": [
+        "Integrated Atmega128RFA1 microcontroller and secure RF link.",
+        "Achieved stable flight through sensor fusion of gyro and accelerometer data."
+      ],
+      "startDate": "2023-09-15",
+      "endDate": "2023-12-10",
       "url": "https://example.com"
     }
   ]
