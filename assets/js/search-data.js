@@ -54,7 +54,87 @@ ninja.data = [{
         },{id: "news-graduated-with-a-bachelor-of-science-in-electrical-engineering-mathematics-computer-science-and-physics-from-uc-san-diego-and-finished-all-coursework-required-for-a-master-s-in-electrical-engineering-in-intelligent-systems-and-robotics",
           title: 'Graduated with a Bachelor of Science in Electrical Engineering, Mathematics-Computer Science, and Physics...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "projects-cogs-118a",
+          title: 'COGS 118A',
+          description: "Supervised Machine Learning",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cogs_118a/";
+            },},{id: "projects-cogs-118b",
+          title: 'COGS 118B',
+          description: "Unsupervised Machine Learning",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cogs_118b/";
+            },},{id: "projects-cogs-188",
+          title: 'COGS 188',
+          description: "AI Algorithms and Reinforcement Learning",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cogs_188/";
+            },},{id: "projects-cse-175",
+          title: 'CSE 175',
+          description: "Entrepreneurship for Engineers",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cse_175/";
+            },},{id: "projects-cse-190",
+          title: 'CSE 190',
+          description: "Special Topics in CSE, AI/ML for Music and Audio",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cse_190/";
+            },},{id: "projects-cse-95",
+          title: 'CSE 95',
+          description: "Tutor Apprenticeship Training",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cse_95/";
+            },},{id: "projects-ece-140a-amp-b",
+          title: 'ECE 140A &amp;amp; B',
+          description: "The Art of Product Engineering I &amp; II",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ece_140a-b/";
+            },},{id: "projects-ece-16",
+          title: 'ECE 16',
+          description: "Rapid Hardware and Software Design",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ece_16/";
+            },},{id: "projects-ece-198",
+          title: 'ECE 198',
+          description: "Directed Group Study, HKN Outreach",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ece_198/";
+            },},{id: "projects-ece-25",
+          title: 'ECE 25',
+          description: "Intro to Digital Design",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ece_25/";
+            },},{id: "projects-ece-273",
+          title: 'ECE 273',
+          description: "Convex Optimization and Applications",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ece_273/";
+            },},{id: "projects-eng-20",
+          title: 'ENG 20',
+          description: "Introduction to Engineering Research",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/eng_20/";
+            },},{id: "projects-math-109",
+          title: 'MATH 109',
+          description: "Mathematical Reasoning",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/math_109/";
+            },},{id: "projects-math-168a",
+          title: 'MATH 168A',
+          description: "Special Topics in Applied Math-CS, Random Walks on Graphs",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/math_168a/";
+            },},{id: "projects-math-31ch",
+          title: 'MATH 31CH',
+          description: "Honors Vector Calculus",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/math_31ch/";
+            },},{id: "projects-phys-1cl",
+          title: 'PHYS 1CL',
+          description: "Waves and Optics Laboratory",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/phys_1cl/";
+            },},{
         id: 'social-discord',
         title: 'Discord',
         section: 'Socials',
