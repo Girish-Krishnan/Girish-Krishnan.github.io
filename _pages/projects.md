@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of my cool projects.
+description: A growing collection of some of my fun projects!
 nav: true
 nav_order: 3
-display_categories: [Electrical Engineering, Robotics, Machine Learning, General Software, Physics, Other]
+display_categories: [Robotics, Machine Learning, Software Development, Physics]
 horizontal: false
 ---
 
