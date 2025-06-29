@@ -4,5 +4,42 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
+  - Girish-Krishnan/3D-Motion-Planning-A-Star-RRT
+  - Girish-Krishnan/3D-Orientation-Tracking
+  - Girish-Krishnan/AI-Algorithms
+  - Girish-Krishnan/CarProtect
+  - Girish-Krishnan/Computational-Physics-Ising-Model
+  - Girish-Krishnan/Computer-Vision-Galaxy-Classification
+  - Girish-Krishnan/Controls_Colab
+  - Girish-Krishnan/CUDA-CPP-NeuralNet
+  - Girish-Krishnan/Dynamic-Programming-Door-Key
+  - Girish-Krishnan/ECE-148-Autonomous-Driving-and-Mapping
+  - Girish-Krishnan/ECE-228-Final-Project
+  - Girish-Krishnan/IMT-Lab-Durip
+  - Girish-Krishnan/Infinite-Horizon-Stochastic-Optimal-Control
+  - Girish-Krishnan/Inverse-QC-Design
+  - Girish-Krishnan/LiDAR-SLAM
+  - Girish-Krishnan/Loma-Physics-Engine
+  - Girish-Krishnan/MIPS-Assembly-Linear-Regression
   - Girish-Krishnan/MPC-and-RL-Mobile-Manipulator
+  - Girish-Krishnan/Multi-Agent-Q-Learning-CUDA
+  - Girish-Krishnan/Multithreading-CPP-NeuralNet
+  - Girish-Krishnan/NeuralNet-LLM-Workshop-IEEE-UCSD
+  - Girish-Krishnan/Numerical-Physics-Simulations
+  - Girish-Krishnan/ProstheTech
+  - Girish-Krishnan/Robust-MPC-and-CBF
+  - Girish-Krishnan/ROS2-Basic-Arm
+  - Girish-Krishnan/ros2_orb_slam3
+  - Girish-Krishnan/Semantic-Segmentation-Laser-Line-Detection
+  - Girish-Krishnan/Smart-Waste-Segregation-And-Gamification
+  - Girish-Krishnan/Transformer-FNet-Music-Generation-Style-Transfer
+  - Girish-Krishnan/TwistAR
+  - Girish-Krishnan/ucsd-phys141-cartwheel-a
+  - Girish-Krishnan/ucsd-phys142-double-well-mcmc-a
+  - Girish-Krishnan/UCSD-Traffic-Accidents-Data-Analysis
+  - Girish-Krishnan/Unstable-Convergence
+  - Girish-Krishnan/Video_Prediction
   - Girish-Krishnan/Visual-Inertial-SLAM
+  - Girish-Krishnan/Visual-Textual-Story-Generation
+  - Girish-Krishnan/Wordle-Algorithms
+  - Girish-Krishnan/X-Ray-Image-GAN-VAE
