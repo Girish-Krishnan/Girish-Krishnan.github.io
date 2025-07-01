@@ -2,12 +2,16 @@
 layout: page
 title: teaching
 permalink: /teaching/
-description: I was fortunate to be a teaching assistant for several courses at UCSD, where I had the opportunity to work with some of the brightest minds in the field. Here are some of the courses I assisted with.
+description:
 nav: true
 nav_order: 4
 display_categories: [Electrical and Computer Engineering (ECE), Computer Science and Engineering (CSE), Cognitive Science (COGS), Mathematics (MATH), Physics (PHYS), Engineering (ENG)]
 horizontal: false
 ---
+
+<p>I was fortunate to be a teaching assistant for several courses at UCSD, where I had the opportunity to work with some of the brightest minds in engineering, computer science, math, physics, and other interdisciplinary fields. </p>
+
+<p>My teaching evaluations can be found in <a href="https://drive.google.com/drive/folders/1-rVGUkRIBWbpBR-cdf4USOVdJX1XFFWW?usp=sharing">this Google Drive folder</a>.</p>
 
 <!-- pages/teaching.md -->
 <div class="projects">
