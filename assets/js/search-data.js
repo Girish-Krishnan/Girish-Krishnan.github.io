@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "nav-teaching",
           title: "teaching",
-          description: "I was fortunate to be a teaching assistant for several courses at UCSD, where I had the opportunity to work with some of the brightest minds in the field. Here are some of the courses I assisted with.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
