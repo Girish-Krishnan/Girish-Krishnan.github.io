@@ -12,13 +12,16 @@ github_repos:
   - Girish-Krishnan/Computer-Vision-Galaxy-Classification
   - Girish-Krishnan/Controls_Colab
   - Girish-Krishnan/CUDA-CPP-NeuralNet
+  - Girish-Krishnan/Discrete-Time-LQR-Control
   - Girish-Krishnan/Dynamic-Programming-Door-Key
+  - Girish-Krishnan/ECE140-API-Image-Generation
   - Girish-Krishnan/ECE-148-Autonomous-Driving-and-Mapping
   - Girish-Krishnan/ECE-228-Final-Project
   - Girish-Krishnan/FutureGAN-HMDB-Video-Prediction
   - Girish-Krishnan/IMT-Lab-Durip
   - Girish-Krishnan/Infinite-Horizon-Stochastic-Optimal-Control
   - Girish-Krishnan/Inverse-QC-Design
+  - Girish-Krishnan/Lecture-Attendance-Tracker
   - Girish-Krishnan/LiDAR-SLAM
   - Girish-Krishnan/Lightweight-Human-Digitization
   - Girish-Krishnan/Loma-Physics-Engine
@@ -26,12 +29,14 @@ github_repos:
   - Girish-Krishnan/MPC-and-RL-Mobile-Manipulator
   - Girish-Krishnan/Multi-Agent-Q-Learning-CUDA
   - Girish-Krishnan/Multithreading-CPP-NeuralNet
+  - Girish-Krishnan/Mutation-Language-Model
   - Girish-Krishnan/NeuralNet-LLM-Workshop-IEEE-UCSD
   - Girish-Krishnan/Numerical-Physics-Simulations
   - Girish-Krishnan/ProstheTech
   - Girish-Krishnan/Robust-MPC-and-CBF
   - Girish-Krishnan/ROS2-Basic-Arm
   - Girish-Krishnan/ros2_orb_slam3
+  - Girish-Krishnan/Rust-Tutorials
   - Girish-Krishnan/Semantic-Segmentation-Laser-Line-Detection
   - Girish-Krishnan/Smart-Waste-Segregation-And-Gamification
   - Girish-Krishnan/Transformer-FNet-Music-Generation-Style-Transfer
