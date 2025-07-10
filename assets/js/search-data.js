@@ -144,6 +144,11 @@ ninja.data = [{
           description: "Implementing a dynamic programming solution to solve the Door Key Gym environment.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_project_robo/";
+            },},{id: "projects-quadcopter-from-scratch",
+          title: 'Quadcopter from Scratch',
+          description: "Making a quadcopter from scratch, PCB design, assembly, and embedded software (C++) for stable flight control.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/8_project_robo/";
             },},{id: "projects-cogs-118a",
           title: 'COGS 118A',
           description: "Supervised Machine Learning",
