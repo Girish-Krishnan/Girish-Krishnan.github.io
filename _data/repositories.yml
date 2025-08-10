@@ -7,6 +7,7 @@ github_repos:
   - Girish-Krishnan/3D-Motion-Planning-A-Star-RRT
   - Girish-Krishnan/3D-Orientation-Tracking
   - Girish-Krishnan/AI-Algorithms
+  - Girish-Krishnan/Analog-Guitar-Pedal-Simulation
   - Girish-Krishnan/CarProtect
   - Girish-Krishnan/Computational-Physics-Ising-Model
   - Girish-Krishnan/Computer-Vision-Galaxy-Classification
@@ -17,7 +18,9 @@ github_repos:
   - Girish-Krishnan/ECE140-API-Image-Generation
   - Girish-Krishnan/ECE-148-Autonomous-Driving-and-Mapping
   - Girish-Krishnan/ECE-228-Final-Project
+  - Girish-Krishnan/ECE-SIPP-Python-ML
   - Girish-Krishnan/FutureGAN-HMDB-Video-Prediction
+  - Girish-Krishnan/Go-Multiplayer-Game
   - Girish-Krishnan/IMT-Lab-Durip
   - Girish-Krishnan/Infinite-Horizon-Stochastic-Optimal-Control
   - Girish-Krishnan/Inverse-QC-Design
@@ -38,6 +41,7 @@ github_repos:
   - Girish-Krishnan/ROS2-Basic-Arm
   - Girish-Krishnan/ros2_orb_slam3
   - Girish-Krishnan/Rust-Tutorials
+  - Girish-Krishnan/Rust-Async-Chat
   - Girish-Krishnan/Semantic-Segmentation-Laser-Line-Detection
   - Girish-Krishnan/Smart-Waste-Segregation-And-Gamification
   - Girish-Krishnan/Transformer-FNet-Music-Generation-Style-Transfer
@@ -50,3 +54,5 @@ github_repos:
   - Girish-Krishnan/Visual-Textual-Story-Generation
   - Girish-Krishnan/Wordle-Algorithms
   - Girish-Krishnan/X-Ray-Image-GAN-VAE
+  - SIO-IMT-Lab/Hydra
+  - SIO-IMT-Lab/DURIP
