@@ -23,13 +23,21 @@ const JOKES = [
 function RoomContent({ reducedMotion }: { reducedMotion: boolean }) {
   const roof = useRef<THREE.MeshStandardMaterial>(null)
   const lights = useRef<(THREE.PointLight | null)[]>([])
-  const knot = useRef<THREE.Mesh>(null)
+  const cup = useRef<THREE.Group>(null)
   const conf = useRef<THREE.InstancedMesh>(null)
   const st = useRef({ reveal: 0, burst: false, parts: [] as { p: THREE.Vector3; v: THREE.Vector3; r: THREE.Euler; w: number }[] })
   const neon = useMemo(() => new THREE.Color('#67e8f9').multiplyScalar(2.4), [])
   const m4 = useMemo(() => new THREE.Matrix4(), [])
   const q = useMemo(() => new THREE.Quaternion(), [])
   const one = useMemo(() => new THREE.Vector3(1, 1, 1), [])
+  // classic trophy cup: one lathe for foot, stem, knop and a thin-walled bowl (outer up to the rim, then back down inside)
+  const cupGeo = useMemo(() => new THREE.LatheGeometry([
+    [0.001, 0], [0.15, 0], [0.155, 0.012], [0.15, 0.03], [0.11, 0.045], [0.06, 0.07], [0.034, 0.1], [0.03, 0.17],
+    [0.05, 0.19], [0.05, 0.205], [0.032, 0.225], [0.05, 0.26], [0.11, 0.3], [0.165, 0.36], [0.195, 0.43], [0.21, 0.52],
+    [0.218, 0.55], [0.205, 0.552], [0.193, 0.53], [0.18, 0.44], [0.15, 0.37], [0.09, 0.315], [0.001, 0.29],
+  ].map(([x, y]) => new THREE.Vector2(x, y)), 48), [])
+  const gold = useMemo(() => new THREE.MeshStandardMaterial({ color: '#fbbf24', metalness: 0.9, roughness: 0.2, emissive: '#7c4a03', emissiveIntensity: 0.4, side: THREE.DoubleSide }), [])
+  useEffect(() => () => { cupGeo.dispose(); gold.dispose() }, [cupGeo, gold])
   const palette = useMemo(() => ['#5eead4', '#fbbf24', '#f472b6', '#a78bfa', '#f43f5e'].map((c) => new THREE.Color(c)), [])
 
   useEffect(() => { if (conf.current) conf.current.count = 0 }, [])
@@ -41,7 +49,7 @@ function RoomContent({ reducedMotion }: { reducedMotion: boolean }) {
     s.reveal = reducedMotion ? (inside ? 1 : 0) : THREE.MathUtils.damp(s.reveal, inside ? 1 : 0, 3, dt)
     if (roof.current) { roof.current.opacity = 1 - s.reveal; roof.current.visible = s.reveal < 0.99 }
     lights.current.forEach((l) => { if (l) l.intensity = 14 * s.reveal })
-    if (knot.current && !reducedMotion) knot.current.rotation.y += dt * 0.8
+    if (cup.current && !reducedMotion) cup.current.rotation.y += dt * 0.8
     if (inside && !s.burst && !reducedMotion && conf.current) {
       s.burst = true
       conf.current.count = CONFETTI
@@ -100,10 +108,21 @@ function RoomContent({ reducedMotion }: { reducedMotion: boolean }) {
       <Text font={fontBold} position={[0, 1.15, -D + 0.12]} fontSize={0.2} letterSpacing={0.2} color="#94a3b8" anchorX="center">~/secret · you found the hidden room</Text>
       {/* trophy */}
       <mesh position={[0, 0.45, -1.4]} castShadow><cylinderGeometry args={[0.35, 0.42, 0.9, 20]} /><meshStandardMaterial color="#334155" /></mesh>
-      <mesh ref={knot} position={[0, 1.25, -1.4]} castShadow>
-        <torusKnotGeometry args={[0.22, 0.07, 96, 12, 2, 3]} />
-        <meshStandardMaterial color="#fbbf24" metalness={0.9} roughness={0.2} emissive="#7c4a03" emissiveIntensity={0.4} />
-      </mesh>
+      <group position={[0, 0.9, -1.4]}>
+        {/* plinth with an engraved plate */}
+        <mesh position={[0, 0.07, 0]} castShadow receiveShadow><boxGeometry args={[0.44, 0.14, 0.44]} /><meshStandardMaterial color="#1e293b" roughness={0.45} metalness={0.3} /></mesh>
+        <mesh position={[0, 0.07, 0.221]}><planeGeometry args={[0.36, 0.075]} /><meshStandardMaterial color="#b8892c" metalness={0.8} roughness={0.35} /></mesh>
+        <Text font={fontBold} position={[0, 0.07, 0.223]} fontSize={0.03} letterSpacing={0.12} color="#3b2a0a" anchorX="center" anchorY="middle">SIM LAB · FOUND IT</Text>
+        {/* the cup spins slowly (static with reduced motion) */}
+        <group ref={cup} position={[0, 0.14, 0]}>
+          <mesh geometry={cupGeo} material={gold} castShadow receiveShadow />
+          {[1, -1].map((sd) => (
+            <mesh key={sd} position={[sd * 0.2, 0.42, 0]} rotation={[0, 0, -sd * Math.PI / 2]} material={gold} castShadow>
+              <torusGeometry args={[0.085, 0.017, 10, 24, Math.PI]} />
+            </mesh>
+          ))}
+        </group>
+      </group>
       {/* jokes on the side walls */}
       {JOKES.map((j, i) => {
         const side = i < 2 ? -1 : 1
