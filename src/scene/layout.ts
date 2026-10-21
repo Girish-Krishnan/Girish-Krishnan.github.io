@@ -26,6 +26,25 @@ export const PADS = {
 export const TANK = { x0: -52, x1: -32, z0: -10, z1: 10, floorY: -4, waterY: -0.3 }
 export const inTank = (x: number, z: number, pad = 0) =>
   x > TANK.x0 - pad && x < TANK.x1 + pad && z > TANK.z0 - pad && z < TANK.z1 + pad
+/** AUV within this many metres (horizontally, from its centre) of a tank wall can climb out. */
+export const TANK_EXIT_DIST = 1.6
+/** Horizontal distance from (x, z) inside the tank to the nearest wall. */
+export const tankEdgeDist = (x: number, z: number) => Math.min(x - TANK.x0, TANK.x1 - x, z - TANK.z0, TANK.z1 - z)
+/**
+ * Deck spot just outside the wall nearest to (x, z), facing away from the water. Kept 2 m clear of the
+ * wall collider and clamped away from the corners, so it never lands in the wall, railing or pump house.
+ */
+export function tankExitSpot(x: number, z: number) {
+  const OUT = 2.1, IN = 1.4
+  const cx = Math.min(Math.max(x, TANK.x0 + IN), TANK.x1 - IN)
+  const cz = Math.min(Math.max(z, TANK.z0 + IN), TANK.z1 - IN)
+  const d = [x - TANK.x0, TANK.x1 - x, z - TANK.z0, TANK.z1 - z]
+  const k = d.indexOf(Math.min(...d))
+  if (k === 0) return { x: TANK.x0 - OUT, z: cz, heading: -Math.PI / 2, side: 'west' }
+  if (k === 1) return { x: TANK.x1 + OUT, z: cz, heading: Math.PI / 2, side: 'east' }
+  if (k === 2) return { x: cx, z: TANK.z0 - OUT, heading: Math.PI, side: 'south' }
+  return { x: cx, z: TANK.z1 + OUT, heading: 0, side: 'north' }
+}
 export const TANK_DOCK = { x: -28, z: 0, heading: -Math.PI / 2 }
 
 export const SECRET_ROOM = { ...polar(240, 30), w: 10, d: 8 }

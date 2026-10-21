@@ -14,6 +14,8 @@ interface GameState {
   pushes: number
   plannerRan: { astar: boolean; rrt: boolean }
   vehicle: VehicleId
+  /** what you were driving before you took the AUV (the exit-tank button switches back to it) */
+  prevVehicle: VehicleId
   paint: PaintId
   lowGravity: boolean
   gravity: number
@@ -40,6 +42,7 @@ const initial = {
   pushes: 0,
   plannerRan: { astar: false, rrt: false },
   vehicle: 'rover' as VehicleId,
+  prevVehicle: 'rover' as VehicleId,
   paint: 'studio' as PaintId,
   lowGravity: false,
   gravity: -20,
@@ -73,7 +76,8 @@ export const useGame = create<GameState>()(
       },
       setVehicle: (v) => {
         if (!isVehicleUnlocked(v)) return false
-        set({ vehicle: v })
+        const cur = get().vehicle
+        set(v === 'auv' && cur !== 'auv' ? { vehicle: v, prevVehicle: cur } : { vehicle: v })
         return true
       },
       setPaint: (p) => {
@@ -111,6 +115,11 @@ export const useGame = create<GameState>()(
 export function isVehicleUnlocked(v: VehicleId) {
   const def = vehicles.find((x) => x.id === v)
   return !!def && (!def.unlock || !!useGame.getState().done[def.unlock])
+}
+/** Vehicle to climb out of the tank in: whatever you had before the AUV, else the rover. */
+export function exitVehicle(): VehicleId {
+  const p = useGame.getState().prevVehicle
+  return p && p !== 'auv' && isVehicleUnlocked(p) ? p : 'rover'
 }
 export const missionCount = () => {
   const d = useGame.getState().done

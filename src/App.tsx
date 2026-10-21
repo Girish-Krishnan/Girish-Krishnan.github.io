@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react'
-import { useSim } from './store'
+import { useSim, exitTank } from './store'
 import { hasWebGL, useCoarsePointer } from './hooks'
 import { stations, type StationId } from './data/content'
 import { TopBar } from './ui/TopBar'
@@ -92,6 +92,7 @@ export default function App() {
       if (e.key === '`') { e.preventDefault(); s.setTerminal(!s.terminalOpen); return }
       if ((e.key === 'q' || e.key === 'Q') && s.zone === 'tank' && !s.openStation && !s.openSheet) { emit('sonar:ping'); return }
       if (s.openStation || s.openSheet) return
+      if ((e.key === 'e' || e.key === 'E') && s.canExitTank) { e.preventDefault(); exitTank(); return }
       if ((e.key === 'e' || e.key === 'E') && s.nearStation) { e.preventDefault(); s.open(s.nearStation) }
       const st = stations.find((x) => x.hotkey === e.key)
       if (st && !e.metaKey && !e.ctrlKey && !e.altKey) { s.teleportTo(st.id) }

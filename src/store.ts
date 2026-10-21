@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { StationId } from './data/content'
 import type { Zone } from './scene/layout'
+import { useGame, exitVehicle } from './game/store'
 
 export type Sheet = 'missions' | 'garage' | 'race'
 
@@ -17,6 +18,8 @@ interface SimState {
   joystick: { x: number; y: number }
   openSheet: Sheet | null
   ascend: number
+  /** AUV is next to a tank wall: show the exit-tank button */
+  canExitTank: boolean
   /** zone panel minimised to its header (phones) */
   zwMin: boolean
   setZwMin: (v: boolean) => void
@@ -44,6 +47,7 @@ export const useSim = create<SimState>((set) => ({
   joystick: { x: 0, y: 0 },
   openSheet: null,
   ascend: 0,
+  canExitTank: false,
   zwMin: false,
   setZwMin: (zwMin) => set({ zwMin }),
   zone: null,
@@ -58,6 +62,15 @@ export const useSim = create<SimState>((set) => ({
   teleportTo: (id) => set((s) => ({ teleport: { id, nonce: (s.teleport?.nonce ?? 0) + 1 } })),
   setJoystick: (x, y) => set({ joystick: { x, y } }),
 }))
+
+/** Climb out of the test tank: back to the vehicle used before the AUV, on the deck by the nearest wall. */
+export function exitTank() {
+  const s = useSim.getState()
+  if (!s.canExitTank) return false
+  useSim.setState({ canExitTank: false })
+  useGame.getState().setVehicle(exitVehicle())
+  return true
+}
 
 /** Go to a station: teleport the robot there and open its panel. */
 export function visitStation(id: StationId, project?: string) {

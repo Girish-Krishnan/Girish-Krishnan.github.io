@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from 'react'
 import { stations } from '../data/content'
-import { useSim } from '../store'
+import { useSim, exitTank } from '../store'
 import { useCoarsePointer } from '../hooks'
 import { useGame } from '../game/store'
 import { useRace } from '../game/race'
@@ -16,6 +16,7 @@ export function useHints(touch: boolean): Hint[] {
   const near = useSim((s) => s.nearStation)
   const zone = useSim((s) => s.zone)
   const racing = useRace((s) => s.phase === 'running')
+  const canExit = useSim((s) => s.canExitTank)
   const ctl = vehicleById(vehicle).control
   const h: Hint[] = []
   const ground = ctl === 'screen' || ctl === 'car'
@@ -24,7 +25,8 @@ export function useHints(touch: boolean): Hint[] {
     else if (ctl === 'swim') h.push({ id: 'drive', node: <>stick swim · ▲▼ depth setpoint</> })
     else h.push({ id: 'drive', node: <>stick {ctl === 'car' ? 'throttle + steer' : 'drive'}</> })
     if (ground && lowG) h.push({ id: 'hop', node: <>⤒ hop</> })
-    if (zone === 'tank' && ctl === 'swim') h.push({ id: 'ctx', node: <>Sonar in the panel</> })
+    if (canExit) h.push({ id: 'exit', node: <>tap Exit tank to climb out</> })
+    else if (zone === 'tank' && ctl === 'swim') h.push({ id: 'ctx', node: <>Sonar in the panel · swim to a wall to exit</> })
     else if (zone === 'tank') h.push({ id: 'ctx', node: <>Garage → AUV to dive</> })
     return h.map((x) => (x.id === 'drive' ? { ...x, id: 'drive-' + vehicle } : x))
   }
@@ -42,7 +44,9 @@ export function useHints(touch: boolean): Hint[] {
     if (lowG) h.push({ id: 'hop', node: <><K>Space</K> hop</> })
   }
   // context
-  if (near) h.push({ id: 'near', node: <><K>E</K> open {stations.find((s) => s.id === near)?.label}</> })
+  if (canExit) h.push({ id: 'exit', node: <><K>E</K> exit tank</> })
+  else if (zone === 'tank' && ctl === 'swim') h.push({ id: 'ctx', node: <>swim to a wall to climb out</> })
+  else if (near) h.push({ id: 'near', node: <><K>E</K> open {stations.find((s) => s.id === near)?.label}</> })
   else if (zone === 'tank' && ctl !== 'swim') h.push({ id: 'ctx', node: <>Garage → AUV to dive</> })
   else if (zone === 'track') h.push({ id: 'ctx', node: racing ? <>hit every checkpoint · teleporting voids the lap</> : <>cross the line to start a lap</> })
   else if (zone === 'planning') h.push({ id: 'ctx', node: <>run A* / RRT in the panel</> })
@@ -64,11 +68,17 @@ export function Hud() {
   const touch = useCoarsePointer()
   const hints = useHints(touch)
   const st = stations.find((s) => s.id === near)
+  const canExit = useSim((s) => s.canExitTank)
   return (
     <>
       {st && !open && (
         <button className="prompt" style={{ ['--accent' as string]: st.color }} onClick={() => useSim.getState().open(st.id)}>
           {!touch && <kbd>E</kbd>} Open <strong>{st.label}</strong>
+        </button>
+      )}
+      {canExit && !open && !sheet && (
+        <button className="prompt exit-prompt" style={{ ['--accent' as string]: '#38bdf8' }} onClick={() => exitTank()} aria-keyshortcuts="E">
+          {!touch && <kbd>E</kbd>} <strong>Exit tank</strong> <span aria-hidden="true">⤴</span>
         </button>
       )}
       {ready && !open && !sheet && !term && (
@@ -81,7 +91,7 @@ export function Hud() {
           ))}
         </p>
       )}
-      <div className="sr-only" aria-live="polite">{st && !open ? `Near ${st.label}. Press E to open.` : ''}</div>
+      <div className="sr-only" aria-live="polite">{canExit && !open ? 'At the tank wall. Press E or the Exit tank button to climb out.' : st && !open ? `Near ${st.label}. Press E to open.` : ''}</div>
     </>
   )
 }

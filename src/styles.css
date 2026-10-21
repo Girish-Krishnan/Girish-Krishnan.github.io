@@ -349,6 +349,7 @@ tbody th { font-weight: 500; }
   .race-hud { width: min(300px, calc(100vw - 24px)); padding: 8px 10px; }
   .race-hud .rh-time { font-size: 20px; }
   .app:has(.zone-widget:not(.min)) .prompt { bottom: auto; top: 118px; }
+  .app:has(.zone-widget.min) .prompt { bottom: calc(222px + env(safe-area-inset-bottom)); }
 }
 /* landscape phones: a slim strip down the right edge, controls shuffled out of its way */
 @media (max-height: 540px) and (orientation: landscape) {
@@ -371,7 +372,7 @@ tbody th { font-weight: 500; }
   .app:has(.zone-widget:not(.min)) .alt-btns { right: calc(316px + env(safe-area-inset-right)); bottom: calc(18px + env(safe-area-inset-bottom)); }
   .app:has(.zone-widget:not(.min)) .alt-btns button { width: 50px; height: 50px; }
   .app:has(.zone-widget:not(.min)) .hint.touch { right: 380px; left: 160px; }
-  .app:has(.zone-widget:not(.min)) .prompt { left: calc(50% - 150px); bottom: 24px; }
+  .app:has(.zone-widget:not(.min)) .prompt { left: calc(50% - 150px); top: 60px; bottom: auto; }
   .slam-dock { top: 56px; bottom: auto; right: 10px; }
   .app:has(.zone-widget) .slam-dock { right: auto; left: 10px; top: 56px; justify-items: start; }
   .slam-map canvas { width: 96px; height: 96px; }

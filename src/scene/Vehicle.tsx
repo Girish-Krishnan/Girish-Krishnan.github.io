@@ -5,12 +5,12 @@ import * as THREE from 'three'
 import { useSim } from '../store'
 import { live } from '../game/bus'
 import { stepAuv, resetAuv } from '../game/auv'
-import { useGame } from '../game/store'
+import { useGame, exitVehicle } from '../game/store'
 import { toast } from '../game/toasts'
 import { paintById, vehicleById, type VehicleId } from '../game/vehicles'
 import { keys, pressed, useDriveKeys } from './keys'
 import {
-  approachPoint, robotState, stationLayout, NEAR_DIST, ARENA_RADIUS, PADS, TANK, inTank, TANK_DOCK,
+  approachPoint, robotState, stationLayout, NEAR_DIST, ARENA_RADIUS, PADS, TANK, inTank, TANK_DOCK, tankExitSpot, tankEdgeDist, TANK_EXIT_DIST,
   SECRET_ROOM, HIDDEN_QUAD, WORLD, ZONE_SPOTS, type Zone,
 } from './layout'
 import { RoverModel, CarModel, QuadModel, AuvModel } from './VehicleModels'
@@ -89,7 +89,9 @@ export function Vehicle({ reducedMotion }: { reducedMotion: boolean }) {
     if (ctl === 'swim') {
       if (!inTank(p.x, p.z)) { place({ x: (TANK.x0 + TANK.x1) / 2, y: -1.3, z: 0, heading: -Math.PI / 2 }); resetAuv(-1.3) } else resetAuv(p.y)
     } else if (inTank(p.x, p.z, 0.3)) {
-      place({ ...TANK_DOCK, y: 1 })
+      // leaving the water (exit-tank button, garage or terminal): on the deck by the nearest wall
+      const e = tankExitSpot(p.x, p.z)
+      place({ x: e.x, z: e.z, heading: e.heading, y: ctl === 'fly' ? 1.6 : 1 })
     } else if (ctl === 'fly') {
       rb.setTranslation({ x: p.x, y: Math.max(p.y, 1.4), z: p.z }, true)
     } else {
@@ -117,13 +119,13 @@ export function Vehicle({ reducedMotion }: { reducedMotion: boolean }) {
           if (!sp) return
           if (id === 'zone:tank' && g.vehicle === 'auv') return
           const target = { ...sp, y: g.vehicle === 'quad' ? 1.6 : 0.8 }
-          if (g.vehicle === 'auv') { pending.current = target; g.setVehicle('rover'); return }
+          if (g.vehicle === 'auv') { const nv = exitVehicle(); pending.current = { ...target, y: nv === 'quad' ? 1.6 : 0.8 }; g.setVehicle(nv); return }
           place(target)
           return
         }
         const t = id === 'home' ? { x: 0, z: 0, heading: Math.PI } : approachPoint(id as Parameters<typeof approachPoint>[0])
         const target = { ...t, y: g.vehicle === 'quad' ? 1.6 : 0.8 }
-        if (g.vehicle === 'auv') { pending.current = target; g.setVehicle('rover'); return }
+        if (g.vehicle === 'auv') { const nv = exitVehicle(); pending.current = { ...target, y: nv === 'quad' ? 1.6 : 0.8 }; g.setVehicle(nv); return }
         place(target)
       }),
     [place],
@@ -290,6 +292,8 @@ export function Vehicle({ reducedMotion }: { reducedMotion: boolean }) {
       }
     }
     if (near !== s.nearStation) s.setNear(near)
+    const canExit = ctl === 'swim' && inTank(p.x, p.z) && tankEdgeDist(p.x, p.z) < TANK_EXIT_DIST
+    if (canExit !== s.canExitTank) useSim.setState({ canExitTank: canExit })
     const zone = zoneAt(p.x, p.z, p.y)
     if (zone !== s.zone) {
       s.setZone(zone)
