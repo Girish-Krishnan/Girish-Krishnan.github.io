@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import { useSim } from '../store'
 import { useGame } from '../game/store'
 import { vehicleById } from '../game/vehicles'
-import { useCoarsePointer, useNarrow, useReducedMotion } from '../hooks'
+import { useCoarsePointer, useCompact, useNarrow, useReducedMotion } from '../hooks'
 import { StudioEnv } from './StudioEnv'
 import { Vehicle } from './Vehicle'
 import { Stations } from './Stations'
@@ -29,7 +29,28 @@ const tmpPos = new THREE.Vector3()
 const tmpLook = new THREE.Vector3()
 const look = new THREE.Vector3()
 
-function CameraRig({ reducedMotion, narrow }: { reducedMotion: boolean; narrow: boolean }) {
+/**
+ * Phones: where the 3D view is not covered by HUD chrome. The zone panel (bottom sheet in portrait,
+ * right-hand strip in landscape) and the top bar are measured from the DOM, and the camera's view
+ * offset re-centres the shot in what is left, so the welder / AUV / pad stays in sight.
+ */
+function freeCentre(W: number, H: number) {
+  const panel = document.querySelector('.zone-widget:not(.min), .race-hud') as HTMLElement | null
+  if (!panel) return null
+  const r = panel.getBoundingClientRect()
+  const bar = document.querySelector('.topbar') as HTMLElement | null
+  const top = bar ? Math.min(bar.getBoundingClientRect().bottom, H * 0.3) : 0
+  let x0 = 0, x1 = W, y0 = top, y1 = H
+  if (r.width > W * 0.6) {
+    if (r.top > H * 0.35) y1 = r.top // bottom sheet
+    else y0 = Math.max(y0, r.bottom)
+  } else if (r.left > W * 0.45) x1 = r.left // right strip
+  else x0 = r.right
+  if (x1 - x0 < 80 || y1 - y0 < 80) return null
+  return { dx: W / 2 - (x0 + x1) / 2, dy: H / 2 - (y0 + y1) / 2, free: (y1 - y0) / H }
+}
+
+function CameraRig({ reducedMotion, narrow, compact }: { reducedMotion: boolean; narrow: boolean; compact: boolean }) {
   const { camera, size } = useThree()
   useEffect(() => {
     // test/debug hook: world → screen projection
@@ -38,6 +59,8 @@ function CameraRig({ reducedMotion, narrow }: { reducedMotion: boolean; narrow: 
   }, [camera, size])
   const first = useRef(true)
   const chaseHeading = useRef(robotState.heading)
+  const view = useRef({ dx: 0, dy: 0, tx: 0, ty: 0, pull: 1, tpull: 1, t: 0 })
+  useEffect(() => { if (!compact) { view.current = { dx: 0, dy: 0, tx: 0, ty: 0, pull: 1, tpull: 1, t: 0 }; (camera as THREE.PerspectiveCamera).clearViewOffset() } }, [compact, camera])
   useFrame((_, dtRaw) => {
     const dt = Math.min(dtRaw, 1 / 20)
     const s = useSim.getState()
@@ -47,6 +70,22 @@ function CameraRig({ reducedMotion, narrow }: { reducedMotion: boolean; narrow: 
     const fov = portrait ? 56 : 42
     const cam = camera as THREE.PerspectiveCamera
     const P = robotState.pos
+    // phones: measure the free area ~10x a second and ease the view offset toward its centre
+    const v = view.current
+    if (compact) {
+      v.t -= dt
+      if (v.t <= 0) {
+        v.t = 0.1
+        const c = !s.openStation && !s.openSheet ? freeCentre(size.width, size.height) : null
+        v.tx = c ? c.dx : 0; v.ty = c ? c.dy : 0
+        // when the free strip is short, back the camera off a little so the subject still fits
+        v.tpull = c ? THREE.MathUtils.clamp(1 + (0.75 - c.free) * 0.55, 1, 1.25) : 1
+      }
+      const a = reducedMotion ? 1 : 1 - Math.exp(-5 * dt)
+      v.dx += (v.tx - v.dx) * a; v.dy += (v.ty - v.dy) * a; v.pull += (v.tpull - v.pull) * a
+      if (Math.abs(v.dx) + Math.abs(v.dy) > 0.5) cam.setViewOffset(size.width, size.height, v.dx, v.dy, size.width, size.height)
+      else if (cam.view?.enabled) cam.clearViewOffset()
+    }
     const shift = (s.openStation || s.openSheet) && !narrow ? 3.4 : 0
     const chase = ctl === 'car' && !reducedMotion && !robotState.autopilot && !(live.launching && s.zone === 'launch')
     if (chase) {
@@ -66,11 +105,12 @@ function CameraRig({ reducedMotion, narrow }: { reducedMotion: boolean; narrow: 
       const F = launchCam ? PADS.launch : pad ? { x: P.x + (pad.x - P.x) * pull, z: P.z + (pad.z - P.z) * pull } : P
       const k = pad ? (s.zone === 'planning' ? 1.2 : weldCam ? 0.62 : 1.0) : 1
       // weld cell: closer framing, nudged right so the zone panel (bottom-left) doesn't cover the plate
-      const wshift = weldCam && !narrow && !portrait ? -1.7 : 0
+      const wshift = weldCam && !narrow && !compact && !portrait ? -1.7 : 0
       const off = launchCam ? [0, portrait ? 8 : 6, portrait ? 24 : 18] : (portrait ? [0, 15, 14.5] : [0, 10.5, 13]).map((v) => v * k)
       const baseY = ctl === 'fly' ? Math.max(0, P.y - 0.5) : ctl === 'swim' ? 0 : 0
       const lookY = launchCam ? 4 + Math.min(live.rocketY, 22) * 0.75 : ctl === 'fly' ? P.y : ctl === 'swim' ? P.y : 0.6
-      tmpPos.set(F.x + off[0] + shift + wshift, off[1] + baseY, F.z + off[2] - (ctl === 'swim' ? 3 : 0))
+      const pl = launchCam ? 1 : v.pull
+      tmpPos.set(F.x + off[0] * pl + shift + wshift, off[1] * pl + baseY, F.z + off[2] * pl - (ctl === 'swim' ? 3 : 0))
       tmpLook.set(F.x + shift + wshift, lookY, F.z - (portrait ? 1.5 : 0.5) + (pad && portrait ? 2.5 : 0))
     }
     const wantFov = chase ? fov + 10 : fov
@@ -103,6 +143,7 @@ export default function Scene() {
   const reducedMotion = useReducedMotion()
   const touch = useCoarsePointer()
   const narrow = useNarrow()
+  const compact = useCompact()
   const [dprMax, setDprMax] = useState(touch ? 1.25 : 1.5)
   const [fx, setFx] = useState(true)
   const [hidden, setHidden] = useState(document.hidden)
@@ -166,7 +207,7 @@ export default function Scene() {
         <Ready />
       </Suspense>
 
-      <CameraRig reducedMotion={reducedMotion} narrow={narrow} />
+      <CameraRig reducedMotion={reducedMotion} narrow={narrow} compact={compact} />
 
       {fx && ready && (
         <Suspense fallback={null}>

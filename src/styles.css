@@ -318,3 +318,64 @@ tbody th { font-weight: 500; }
 .weld-score { margin: 6px 0 2px; }
 .timeline li.focus { outline: 1px solid color-mix(in srgb, var(--accent) 60%, transparent); outline-offset: 6px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 7%, transparent); }
 .timeline li:focus { outline-offset: 6px; }
+
+/* ---------- v2.6: phones: compact zone panels that keep the 3D subject in view ---------- */
+.weld-body, .weld-ctl { display: block; }
+.zw-min { display: none; }
+@media (max-width: 720px), (max-height: 540px) and (orientation: landscape) {
+  .zone-widget.compact { padding: 8px 10px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+  .zone-widget.compact header { padding-right: 34px; font-size: 14px; min-height: 26px; }
+  .zone-widget.compact header .mono { font-size: 11px; }
+  .zw-min { display: grid; place-items: center; position: absolute; top: 5px; right: 6px; min-width: 34px; height: 30px; padding: 0 8px; border-radius: 9px; border: 1px solid var(--line-2); background: rgba(255,255,255,0.05); color: var(--text); font: inherit; font-size: 13px; cursor: pointer; z-index: 1; }
+  .zone-widget.min { padding: 0; width: auto !important; max-width: calc(100vw - 24px); overflow: visible; border-radius: 999px; }
+  .zone-widget.min .zw-min { position: static; display: flex; align-items: center; gap: 8px; height: 38px; padding: 0 16px; border: 0; border-radius: 999px; background: none; font-family: var(--display); font-size: 13.5px; white-space: nowrap; }
+  .zone-widget.compact .zw-status { margin: 4px 0 6px; font-size: 11px; }
+  .zone-widget.compact .zw-row { gap: 5px; }
+  .zone-widget.compact .zw-row button { padding: 6px 8px; font-size: 12.5px; min-height: 34px; }
+  .zone-widget.compact .zw-foot, .zone-widget.compact .linkish, .zone-widget.compact .weld-score, .zone-widget.compact .pid-bars { display: none; }
+  .zone-widget.compact .spark { height: 34px; margin-top: 4px; }
+  .zone-widget.compact .spark.depth { height: 40px; }
+  .zone-widget.compact .pid-line { font-size: 10.5px; }
+}
+/* portrait phones: a short bottom sheet above the joystick row */
+@media (max-width: 720px) {
+  .zone-widget.compact { left: 8px; right: 8px; width: auto; transform: none; bottom: calc(170px + env(safe-area-inset-bottom)); max-height: 34vh; animation-name: rise2; }
+  .zone-widget.min { left: 50%; right: auto; transform: translateX(-50%); animation: none; }
+  .weld-body { display: grid; grid-template-columns: minmax(0, 44%) minmax(0, 1fr); gap: 10px; align-items: start; }
+  .zone-widget.compact .plate-view { margin-top: 4px; }
+  .zone-widget.compact .weld-ctl .zw-status { margin-top: 2px; min-height: 3em; }
+  .zone-widget.compact .weld-ctl .zw-row button { flex: 1 1 40%; padding: 6px 6px; white-space: nowrap; }
+  .zone-widget.compact .weld-ctl .zw-row + .zw-row button { flex: 1 1 auto; }
+  .race-hud { width: min(300px, calc(100vw - 24px)); padding: 8px 10px; }
+  .race-hud .rh-time { font-size: 20px; }
+  .app:has(.zone-widget:not(.min)) .prompt { bottom: auto; top: 118px; }
+}
+/* landscape phones: a slim strip down the right edge, controls shuffled out of its way */
+@media (max-height: 540px) and (orientation: landscape) {
+  .topbar { flex-wrap: nowrap; padding: 6px 10px; gap: 10px; }
+  .brand small { display: none; }
+  .stations-nav { order: 0; width: auto; flex: 1 1 auto; min-width: 0; margin: 0; overflow-x: auto; scrollbar-width: none; }
+  .stations-nav ul { width: max-content; }
+  .stations-nav button { padding: 5px 10px; font-size: 12.5px; }
+  .top-actions { margin-left: 0; gap: 5px; }
+  .top-actions .ghost { padding: 6px 9px; font-size: 12px; }
+  .top-actions .lbl { display: none; }
+  .top-actions .lbl-short { display: inline; }
+  .toasts { top: 56px; }
+  .panel { top: 56px; bottom: 8px; }
+  .zone-widget.compact { left: auto; right: calc(8px + env(safe-area-inset-right)); top: 56px; bottom: auto; transform: none; width: 292px; max-height: calc(100% - 64px); animation-name: slidein; }
+  .zone-widget.min { top: 56px; left: auto; transform: none; }
+  .weld-body { display: block; }
+  .zone-widget.compact .plate-view { width: auto; height: 92px; margin: 4px auto 0; }
+  .zone-widget.compact .spark.depth { height: 34px; }
+  .app:has(.zone-widget:not(.min)) .alt-btns { right: calc(316px + env(safe-area-inset-right)); bottom: calc(18px + env(safe-area-inset-bottom)); }
+  .app:has(.zone-widget:not(.min)) .alt-btns button { width: 50px; height: 50px; }
+  .app:has(.zone-widget:not(.min)) .hint.touch { right: 380px; left: 160px; }
+  .app:has(.zone-widget:not(.min)) .prompt { left: calc(50% - 150px); bottom: 24px; }
+  .slam-dock { top: 56px; bottom: auto; right: 10px; }
+  .app:has(.zone-widget) .slam-dock { right: auto; left: 10px; top: 56px; justify-items: start; }
+  .slam-map canvas { width: 96px; height: 96px; }
+  .slam-map figcaption { display: none; }
+  .race-hud { top: 56px; bottom: auto; right: 10px; left: auto; transform: none; width: 240px; padding: 8px 10px; }
+  .race-hud .rh-time { font-size: 20px; }
+}

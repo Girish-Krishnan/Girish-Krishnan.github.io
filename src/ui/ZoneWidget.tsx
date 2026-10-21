@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { auv, PID, BEACONS, ACOUSTIC_DEPTHS, DEPTH_MAX } from '../game/auv'
 import { weld, PLATE, CLEAN, PRESETS, busy, setDrawn, addDrawnPoint } from '../game/weld'
 import { useSim } from '../store'
-import { useCoarsePointer } from '../hooks'
+import { useCoarsePointer, useCompact } from '../hooks'
 import { useFeature, emit } from '../game/bus'
 import { useGame } from '../game/store'
 
@@ -147,7 +147,9 @@ function Weld() {
   return (
     <>
       <header><span className="zw-dot" style={{ background: '#fb923c' }} /> <strong>Weld cell · seam tracking</strong> <span className="mono muted">{w.phase}</span></header>
+      <div className="weld-body">
       <PlateView disabled={b} />
+      <div className="weld-ctl">
       <p className="zw-status mono" aria-live="polite">{status}</p>
       <div className="zw-row" role="group" aria-label="Seam presets">
         {PRESETS.map((k) => <button key={k} disabled={b} onClick={() => emit('weld:preset', k)}>{k === 'L' ? 'L-joint' : k[0].toUpperCase() + k.slice(1)}</button>)}
@@ -160,6 +162,8 @@ function Weld() {
       <p className="zw-status mono weld-score">
         rms {w.rms.toFixed(1)} mm · max {w.max.toFixed(1)} mm · quality {w.quality.toFixed(0)} · best {best.toFixed(0)}{done ? ' ✓' : `/${CLEAN}`}
       </p>
+      </div>
+      </div>
       <button className="linkish" onClick={() => useSim.getState().open('experience', { project: 'argon-robotics' })}>Argon Robotics in Experience →</button>
       <p className="zw-foot">The detector is a simulated stand-in for a CNN, not a real model. The arm runs closed-form IK in your browser with speed and acceleration limits.</p>
     </>
@@ -265,14 +269,24 @@ function TankPanel() {
 
 const TITLES = { planning: 'Planning pad controls', cartpole: 'Cart-pole controls', launch: 'Launch pad controls', weld: 'Weld cell controls', tank: 'AUV test tank controls' } as const
 
+const SHORT = { planning: 'Planning pad', cartpole: 'Cart-pole · LQR', launch: 'Launch pad', weld: 'Weld cell', tank: 'AUV test tank' } as const
+
 export function ZoneWidget() {
   const zone = useSim((s) => s.zone)
   const open = useSim((s) => s.openStation || s.openSheet)
+  const compact = useCompact()
+  const min = useSim((s) => s.zwMin) && compact
   if (open || !zone || !(zone in TITLES)) return null
   const z = zone as keyof typeof TITLES
+  const toggle = () => useSim.getState().setZwMin(!min)
   return (
-    <section className="zone-widget" aria-label={TITLES[z]}>
-      {z === 'planning' ? <Planner /> : z === 'cartpole' ? <Cart /> : z === 'launch' ? <Launch /> : z === 'tank' ? <TankPanel /> : <Weld />}
+    <section className={'zone-widget' + (compact ? ' compact' : '') + (min ? ' min' : '')} aria-label={TITLES[z]}>
+      {compact && (
+        <button className="zw-min" onClick={toggle} aria-expanded={!min} aria-label={min ? `Show ${SHORT[z]} controls` : `Minimise ${SHORT[z]} controls`}>
+          {min ? <><span className="zw-dot" /> {SHORT[z]} <span aria-hidden="true">▴</span></> : <span aria-hidden="true">▾</span>}
+        </button>
+      )}
+      {!min && (z === 'planning' ? <Planner /> : z === 'cartpole' ? <Cart /> : z === 'launch' ? <Launch /> : z === 'tank' ? <TankPanel /> : <Weld />)}
     </section>
   )
 }

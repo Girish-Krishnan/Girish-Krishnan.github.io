@@ -14,6 +14,9 @@ function useMedia(query: string) {
 export const useReducedMotion = () => useMedia('(prefers-reduced-motion: reduce)')
 export const useCoarsePointer = () => useMedia('(pointer: coarse)')
 export const useNarrow = () => useMedia('(max-width: 720px)')
+/** Phone-sized screens (portrait or landscape): zone panels dock compactly and the camera reframes around them. */
+export const COMPACT_QUERY = '(max-width: 720px), (max-height: 540px) and (orientation: landscape)'
+export const useCompact = () => useMedia(COMPACT_QUERY)
 
 export const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches

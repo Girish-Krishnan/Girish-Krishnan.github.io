@@ -17,6 +17,9 @@ interface SimState {
   joystick: { x: number; y: number }
   openSheet: Sheet | null
   ascend: number
+  /** zone panel minimised to its header (phones) */
+  zwMin: boolean
+  setZwMin: (v: boolean) => void
   zone: Zone
   setZone: (z: Zone) => void
   openSheetFn: (s: Sheet | null) => void
@@ -41,6 +44,8 @@ export const useSim = create<SimState>((set) => ({
   joystick: { x: 0, y: 0 },
   openSheet: null,
   ascend: 0,
+  zwMin: false,
+  setZwMin: (zwMin) => set({ zwMin }),
   zone: null,
   setZone: (zone) => set({ zone }),
   openSheetFn: (openSheet) => set({ openSheet, openStation: null, focusProject: null }),
